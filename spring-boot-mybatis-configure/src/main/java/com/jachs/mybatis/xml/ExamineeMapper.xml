@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.ExamineeMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Examinee">
+    <id column="examinee_id" jdbcType="INTEGER" property="examineeId" />
+    <result column="examinee_name" jdbcType="VARCHAR" property="examineeName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    examinee_id, examinee_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from examinee
+    where examinee_id = #{examineeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from examinee
+    where examinee_id = #{examineeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Examinee">
+    insert into examinee (examinee_id, examinee_name)
+    values (#{examineeId,jdbcType=INTEGER}, #{examineeName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Examinee">
+    insert into examinee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examineeId != null">
+        examinee_id,
+      </if>
+      <if test="examineeName != null">
+        examinee_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examineeId != null">
+        #{examineeId,jdbcType=INTEGER},
+      </if>
+      <if test="examineeName != null">
+        #{examineeName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.mybatis.entity.Examinee">
+    update examinee
+    <set>
+      <if test="examineeName != null">
+        examinee_name = #{examineeName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where examinee_id = #{examineeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.mybatis.entity.Examinee">
+    update examinee
+    set examinee_name = #{examineeName,jdbcType=VARCHAR}
+    where examinee_id = #{examineeId,jdbcType=INTEGER}
+  </update>
+</mapper>

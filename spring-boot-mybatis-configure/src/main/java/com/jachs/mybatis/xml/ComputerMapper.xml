@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.ComputerMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Computer">
+    <id column="computer_id" jdbcType="VARCHAR" property="computerId" />
+    <result column="computer_name" jdbcType="VARCHAR" property="computerName" />
+    <result column="computer_price" jdbcType="BIGINT" property="computerPrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    computer_id, computer_name, computer_price
+  </sql>
+   <select id="count"  resultType="int">
+    select count(*)   from computer
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from computer
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from computer
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Computer">
+    insert into computer (computer_id, computer_name, computer_price
+      )
+    values (#{computerId,jdbcType=VARCHAR}, #{computerName,jdbcType=VARCHAR}, #{computerPrice,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Computer">
+    insert into computer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="computerId != null">
+        computer_id,
+      </if>
+      <if test="computerName != null">
+        computer_name,
+      </if>
+      <if test="computerPrice != null">
+        computer_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="computerId != null">
+        #{computerId,jdbcType=VARCHAR},
+      </if>
+      <if test="computerName != null">
+        #{computerName,jdbcType=VARCHAR},
+      </if>
+      <if test="computerPrice != null">
+        #{computerPrice,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.mybatis.entity.Computer">
+    update computer
+    <set>
+      <if test="computerName != null">
+        computer_name = #{computerName,jdbcType=VARCHAR},
+      </if>
+      <if test="computerPrice != null">
+        computer_price = #{computerPrice,jdbcType=BIGINT},
+      </if>
+    </set>
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.mybatis.entity.Computer">
+    update computer
+    set computer_name = #{computerName,jdbcType=VARCHAR},
+      computer_price = #{computerPrice,jdbcType=BIGINT}
+    where computer_id = #{computerId,jdbcType=VARCHAR}
+  </update>
+</mapper>

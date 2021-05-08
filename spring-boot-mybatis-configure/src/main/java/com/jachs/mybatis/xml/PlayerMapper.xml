@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.PlayerMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Player">
+    <id column="player_id" jdbcType="BIGINT" property="playerId" />
+    <result column="level" jdbcType="INTEGER" property="level" />
+    <result column="player_user_name" jdbcType="VARCHAR" property="playerUserName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    player_id, level, player_user_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from player
+    where player_id = #{playerId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from player
+    where player_id = #{playerId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Player">
+    insert into player (player_id, level, player_user_name
+      )
+    values (#{playerId,jdbcType=BIGINT}, #{level,jdbcType=INTEGER}, #{playerUserName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Player">
+    insert into player
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="playerId != null">
+        player_id,
+      </if>
+      <if test="level != null">
+        level,
+      </if>
+      <if test="playerUserName != null">
+        player_user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="playerId != null">
+        #{playerId,jdbcType=BIGINT},
+      </if>
+      <if test="level != null">
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="playerUserName != null">
+        #{playerUserName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.mybatis.entity.Player">
+    update player
+    <set>
+      <if test="level != null">
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="playerUserName != null">
+        player_user_name = #{playerUserName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where player_id = #{playerId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.mybatis.entity.Player">
+    update player
+    set level = #{level,jdbcType=INTEGER},
+      player_user_name = #{playerUserName,jdbcType=VARCHAR}
+    where player_id = #{playerId,jdbcType=BIGINT}
+  </update>
+</mapper>

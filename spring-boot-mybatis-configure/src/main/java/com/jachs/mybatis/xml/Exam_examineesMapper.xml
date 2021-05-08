@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.Exam_examineesMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Exam_examineesKey">
+    <id column="exam_exam_id" jdbcType="INTEGER" property="examExamId" />
+    <id column="examinees_examinee_id" jdbcType="INTEGER" property="examineesExamineeId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.jachs.mybatis.entity.Exam_examineesKey">
+    delete from exam_examinees
+    where exam_exam_id = #{examExamId,jdbcType=INTEGER}
+      and examinees_examinee_id = #{examineesExamineeId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Exam_examineesKey">
+    insert into exam_examinees (exam_exam_id, examinees_examinee_id)
+    values (#{examExamId,jdbcType=INTEGER}, #{examineesExamineeId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Exam_examineesKey">
+    insert into exam_examinees
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examExamId != null">
+        exam_exam_id,
+      </if>
+      <if test="examineesExamineeId != null">
+        examinees_examinee_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examExamId != null">
+        #{examExamId,jdbcType=INTEGER},
+      </if>
+      <if test="examineesExamineeId != null">
+        #{examineesExamineeId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.Student_cardMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Student_card">
+    <id column="card_id" jdbcType="VARCHAR" property="cardId" />
+    <result column="card_monery" jdbcType="BIGINT" property="cardMonery" />
+    <result column="card_type" jdbcType="VARCHAR" property="cardType" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    card_id, card_monery, card_type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student_card
+    where card_id = #{cardId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from student_card
+    where card_id = #{cardId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Student_card">
+    insert into student_card (card_id, card_monery, card_type
+      )
+    values (#{cardId,jdbcType=VARCHAR}, #{cardMonery,jdbcType=BIGINT}, #{cardType,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Student_card">
+    insert into student_card
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        card_id,
+      </if>
+      <if test="cardMonery != null">
+        card_monery,
+      </if>
+      <if test="cardType != null">
+        card_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cardId != null">
+        #{cardId,jdbcType=VARCHAR},
+      </if>
+      <if test="cardMonery != null">
+        #{cardMonery,jdbcType=BIGINT},
+      </if>
+      <if test="cardType != null">
+        #{cardType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.mybatis.entity.Student_card">
+    update student_card
+    <set>
+      <if test="cardMonery != null">
+        card_monery = #{cardMonery,jdbcType=BIGINT},
+      </if>
+      <if test="cardType != null">
+        card_type = #{cardType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where card_id = #{cardId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.mybatis.entity.Student_card">
+    update student_card
+    set card_monery = #{cardMonery,jdbcType=BIGINT},
+      card_type = #{cardType,jdbcType=VARCHAR}
+    where card_id = #{cardId,jdbcType=VARCHAR}
+  </update>
+</mapper>

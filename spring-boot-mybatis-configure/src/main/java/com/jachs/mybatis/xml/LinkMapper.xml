@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.mybatis.dao.LinkMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.mybatis.entity.Link">
+    <id column="link_id" jdbcType="BIGINT" property="linkId" />
+    <result column="child_node_id" jdbcType="BIGINT" property="childNodeId" />
+    <result column="father_node_id" jdbcType="BIGINT" property="fatherNodeId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    link_id, child_node_id, father_node_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from link
+    where link_id = #{linkId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from link
+    where link_id = #{linkId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.mybatis.entity.Link">
+    insert into link (link_id, child_node_id, father_node_id
+      )
+    values (#{linkId,jdbcType=BIGINT}, #{childNodeId,jdbcType=BIGINT}, #{fatherNodeId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.mybatis.entity.Link">
+    insert into link
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="linkId != null">
+        link_id,
+      </if>
+      <if test="childNodeId != null">
+        child_node_id,
+      </if>
+      <if test="fatherNodeId != null">
+        father_node_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="linkId != null">
+        #{linkId,jdbcType=BIGINT},
+      </if>
+      <if test="childNodeId != null">
+        #{childNodeId,jdbcType=BIGINT},
+      </if>
+      <if test="fatherNodeId != null">
+        #{fatherNodeId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.mybatis.entity.Link">
+    update link
+    <set>
+      <if test="childNodeId != null">
+        child_node_id = #{childNodeId,jdbcType=BIGINT},
+      </if>
+      <if test="fatherNodeId != null">
+        father_node_id = #{fatherNodeId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where link_id = #{linkId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.mybatis.entity.Link">
+    update link
+    set child_node_id = #{childNodeId,jdbcType=BIGINT},
+      father_node_id = #{fatherNodeId,jdbcType=BIGINT}
+    where link_id = #{linkId,jdbcType=BIGINT}
+  </update>
+</mapper>
