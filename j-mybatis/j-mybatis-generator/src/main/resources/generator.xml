@@ -13,7 +13,7 @@
 		<!-- com.mysql.cj.jdbc.Driver高版本8是个坑 -->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://127.0.0.1:3306/jpatest?serverTimezone=GMT"
-			userId="root" password="">
+			userId="root" password="123456">
 		</jdbcConnection>
 		<!--生成实体类的位置以及包的名字 -->
 		<javaModelGenerator
@@ -37,73 +37,9 @@
 			enableDeleteByExample="false" enableSelectByExample="false"
 			enableUpdateByExample="false" domainObjectName="Computer">
 		</table>
-		<table tableName="exam" enableCountByExample="false"
+		<table tableName="software" enableCountByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Exam">
-		</table>
-		<table tableName="exam_examinees" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Exam_examinees">
-		</table>
-		<table tableName="examinee" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Examinee">
-		</table>
-		<table tableName="examinee_exams" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Examinee_exams">
-		</table>
-		<table tableName="example" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Example">
-		</table>
-		<table tableName="link" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Link">
-		</table>
-		<table tableName="my_class" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="My_class">
-		</table>
-		<table tableName="my_student" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="My_student">
-		</table>
-		<table tableName="my_subject" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="My_subject">
-		</table>
-		<table tableName="my_subject_my_student_list" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="My_subject_my_student_list">
-		</table>
-		<table tableName="node" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Node">
-		</table>
-		<table tableName="player" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Player">
-		</table>
-		<table tableName="soft_ware" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Soft_ware">
-		</table>
-		<table tableName="student" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Student">
-		</table>
-		<table tableName="student_card" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Student_card">
-		</table>
-		<table tableName="t_user" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="T_user">
-		</table>
-		<table tableName="video_game" enableCountByExample="false"
-			enableDeleteByExample="false" enableSelectByExample="false"
-			enableUpdateByExample="false" domainObjectName="Video_game">
+			enableUpdateByExample="false" domainObjectName="Software">
 		</table>
 	</context>
 </generatorConfiguration>

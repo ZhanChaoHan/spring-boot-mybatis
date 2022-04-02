@@ -1,37 +1,55 @@
 package com.jachs.mybatis.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Computer implements Serializable {
-    private String computerId;
+    private String computerid;
 
-    private String computerName;
+    private String computername;
 
-    private Long computerPrice;
+    private Long computerprice;
+
+    private Date madetime;
 
     private static final long serialVersionUID = 1L;
 
-    public String getComputerId() {
-        return computerId;
+    public String getComputerid() {
+        return computerid;
     }
 
-    public void setComputerId(String computerId) {
-        this.computerId = computerId == null ? null : computerId.trim();
+    public void setComputerid(String computerid) {
+        this.computerid = computerid == null ? null : computerid.trim();
     }
 
-    public String getComputerName() {
-        return computerName;
+    public String getComputername() {
+        return computername;
     }
 
-    public void setComputerName(String computerName) {
-        this.computerName = computerName == null ? null : computerName.trim();
+    public void setComputername(String computername) {
+        this.computername = computername == null ? null : computername.trim();
     }
 
-    public Long getComputerPrice() {
-        return computerPrice;
+    public Long getComputerprice() {
+        return computerprice;
     }
 
-    public void setComputerPrice(Long computerPrice) {
-        this.computerPrice = computerPrice;
+    public void setComputerprice(Long computerprice) {
+        this.computerprice = computerprice;
     }
+
+    public Date getMadetime() {
+        return madetime;
+    }
+
+    public void setMadetime(Date madetime) {
+        this.madetime = madetime;
+    }
+
+	@Override
+	public String toString() {
+		return "Computer [computerid=" + computerid + ", computername=" + computername + ", computerprice="
+				+ computerprice + ", madetime=" + madetime + "]";
+	}
+    
 }
