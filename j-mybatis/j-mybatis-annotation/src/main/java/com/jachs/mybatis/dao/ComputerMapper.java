@@ -19,10 +19,10 @@ import com.jachs.mybatis.entity.Computer;
  */
 @Mapper
 public interface ComputerMapper {
-	@Insert("insert into Computer(computer_id,computer_name,computer_price) values(#{computer_id},#{computer_name},#{computer_price})")
+	@Insert("insert into Computer(computerId,computerName,computerPrice,madeTime) values(#{computerId},#{computerName},#{computerPrice},#{madeTime})")
 	int addComputer(Computer computer);
 	
-	@Delete("delete  from computer where computer_id=#{computer_id}")
+	@Delete("delete  from computer where computerId=#{computer_id}")
 	int deleteComputer(String computerId);
 	
 	@Select("select * from computer")

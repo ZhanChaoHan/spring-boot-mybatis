@@ -1,49 +1,62 @@
 package com.jachs.mybatis.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
+/***
+ * 
+ * @author zhanchaohan
+ *
+ */
 public class Computer implements Serializable {
-    private String computer_id;
-
-    private String computer_name;
-
-    private Long computer_price;
-
+    private String computerId;
+    private String computerName;
+    private Long computerPrice;
+    private Date madeTime;
+    
     private static final long serialVersionUID = 1L;
 
 	public Computer() {
 		super();
 	}
-
-	public Computer(String computer_id, String computer_name, Long computer_price) {
+	public Computer(String computerId, String computerName, Long computerPrice, Date madeTime) {
 		super();
-		this.computer_id = computer_id;
-		this.computer_name = computer_name;
-		this.computer_price = computer_price;
+		this.computerId = computerId;
+		this.computerName = computerName;
+		this.computerPrice = computerPrice;
+		this.madeTime = madeTime;
 	}
-
-	public String getComputer_id() {
-		return computer_id;
+	public String getComputerId() {
+		return computerId;
 	}
-
-	public void setComputer_id(String computer_id) {
-		this.computer_id = computer_id;
+	public void setComputerId(String computerId) {
+		this.computerId = computerId;
 	}
-
-	public String getComputer_name() {
-		return computer_name;
+	public String getComputerName() {
+		return computerName;
 	}
-
-	public void setComputer_name(String computer_name) {
-		this.computer_name = computer_name;
+	public void setComputerName(String computerName) {
+		this.computerName = computerName;
 	}
-
-	public Long getComputer_price() {
-		return computer_price;
+	public Long getComputerPrice() {
+		return computerPrice;
 	}
-
-	public void setComputer_price(Long computer_price) {
-		this.computer_price = computer_price;
+	public void setComputerPrice(Long computerPrice) {
+		this.computerPrice = computerPrice;
+	}
+	public Date getMadeTime() {
+		return madeTime;
+	}
+	public void setMadeTime(Date madeTime) {
+		this.madeTime = madeTime;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	@Override
+	public String toString() {
+		return "Computer [computerId=" + computerId + ", computerName=" + computerName + ", computerPrice="
+				+ computerPrice + ", madeTime=" + madeTime + "]";
 	}
 
 }

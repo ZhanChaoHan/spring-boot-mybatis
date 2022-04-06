@@ -17,9 +17,10 @@
 	<packaging>pom</packaging>
 
 	<modules>
-        <module>j-mybatis-annotation</module>
         <module>j-mybatis-xml</module>
         <module>j-mybatis-generator</module>
+		<module>j-mybatis-annotation</module>
+		<module>j-mybatis-annotation-plus</module>
 	</modules>
 	
 	<properties>
