@@ -31,49 +31,27 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  *
  */
 public class GeneratorDemo {
-	public static void main(String[] args) {
-		String projectPath = System.getProperty("user.dir");
-
-        // 自定义需要填充的字段
-        List<TableFill> tableFillList = new ArrayList<TableFill>();
-        //如 每张表都有一个创建时间、修改时间
-        //而且这基本上就是通用的了，新增时，创建时间和修改时间同时修改
-        //修改时，修改时间会修改，
-        //虽然像Mysql数据库有自动更新几只，但像ORACLE的数据库就没有了，
-        //使用公共字段填充功能，就可以实现，自动按场景更新了。
-        //如下是配置
-        TableFill sysCreateTime = new TableFill("create_time", FieldFill.INSERT);
-        TableFill sysUpdateTime = new TableFill("update_time", FieldFill.UPDATE);
-        TableFill sysCreateBy = new TableFill("create_by", FieldFill.INSERT);
-        TableFill sysUpdateBy = new TableFill("update_by", FieldFill.UPDATE);
-        tableFillList.add(sysCreateTime);
-        tableFillList.add(sysUpdateTime);
-        tableFillList.add(sysCreateBy);
-        tableFillList.add(sysUpdateBy);
-
-        // 1. 全局配置
-        GlobalConfig config = new GlobalConfig();
+	static String projectPath = System.getProperty("user.dir");
+	static // 自定义需要填充的字段
+    List<TableFill> tableFillList = new ArrayList<TableFill>();
+    
+	private static GlobalConfig globalConfig() {
+        GlobalConfig config = new GlobalConfig();//全局配置
         // 是否支持AR模式
         config.setActiveRecord(true)
-                // 作者
-                .setAuthor("zhanchaohan")
-                // 生成路径
-                .setOutputDir(projectPath + "/src/main/java/")
-                // 文件覆盖
-                .setFileOverride(true)
-                // 主键策略
-                .setIdType(IdType.AUTO)
-                // 设置生成的service接口的名字的首字母是否为I,例如IEmployeeService
-                .setServiceName("%sService")
-                //生成基本的resultMap
-                .setBaseResultMap(true)
-                //生成基本的SQL片段
-                .setBaseColumnList(true)
-                //生成后打开文件夹
-                .setOpen(false).setDateType(DateType.ONLY_DATE);
-
-        // 2. 数据源配置
-        DataSourceConfig dsConfig = new DataSourceConfig();
+                .setAuthor("zhanchaohan")// 作者
+                .setOutputDir(projectPath + "/src/main/java/")// 生成路径
+                .setFileOverride(true)// 文件覆盖
+                .setIdType(IdType.AUTO)// 主键策略
+                .setServiceName("%sService")// 设置生成的service接口的名字的首字母是否为I,例如IEmployeeService
+                .setBaseResultMap(true)//生成基本的resultMap
+                .setBaseColumnList(true)//生成基本的SQL片段
+                .setOpen(false).setDateType(DateType.ONLY_DATE);//生成后打开文件夹
+        
+        return config;
+	}
+	private static DataSourceConfig dataSourceConfig() {
+		DataSourceConfig dsConfig = new DataSourceConfig();
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
@@ -91,8 +69,10 @@ public class GeneratorDemo {
                         return super.processTypeConvert(globalConfig, fieldType);
                     }
                 });
-
-        // 3. 策略配置globalConfiguration中
+        return dsConfig;
+	}
+	private static StrategyConfig strategyConfig() {
+		//策略配置globalConfiguration中
         StrategyConfig stConfig = new StrategyConfig();
         // 全局大写命名
         stConfig.setCapitalMode(true)
@@ -108,19 +88,36 @@ public class GeneratorDemo {
                 .setEntityBooleanColumnRemoveIsPrefix(false)
                 // 自定义实体，公共字段
                 .setTableFillList(tableFillList);
+        
+        return stConfig;
+	}
+	private static  PackageConfig packageConfig() {
+		 PackageConfig pkConfig = new PackageConfig();
+	        pkConfig.setParent("com.jachs.mybatis")
+	                .setMapper("mapper")//dao
+	                .setService("service")//servcie
+	                .setController("web")//controller
+	                .setEntity("domain")//entity
+	                .setXml("xml");//mapper.xml
+	        
+	        return pkConfig;
+	}
+	public static void main(String[] args) {
+        //如 每张表都有一个创建时间、修改时间
+        //而且这基本上就是通用的了，新增时，创建时间和修改时间同时修改
+        //修改时，修改时间会修改，
+        //虽然像Mysql数据库有自动更新几只，但像ORACLE的数据库就没有了，
+        //使用公共字段填充功能，就可以实现，自动按场景更新了。
+        //如下是配置
+        TableFill sysCreateTime = new TableFill("create_time", FieldFill.INSERT);
+        TableFill sysUpdateTime = new TableFill("update_time", FieldFill.UPDATE);
+        TableFill sysCreateBy = new TableFill("create_by", FieldFill.INSERT);
+        TableFill sysUpdateBy = new TableFill("update_by", FieldFill.UPDATE);
+        tableFillList.add(sysCreateTime);
+        tableFillList.add(sysUpdateTime);
+        tableFillList.add(sysCreateBy);
+        tableFillList.add(sysUpdateBy);
 
-        // 4. 包名策略配置
-        PackageConfig pkConfig = new PackageConfig();
-        pkConfig.setParent("com.jachs.mybatis")
-                //dao
-                .setMapper("mapper")
-                //servcie
-                .setService("service")
-                //controller
-                .setController("web")
-                .setEntity("domain")
-                //mapper.xml
-                .setXml("repository.mybatis");
 
         // 注入自定义配置，可以在 VM 中使用 cfg.abc 【可无】
         InjectionConfig cfg = new InjectionConfig() {
@@ -145,19 +142,17 @@ public class GeneratorDemo {
 
         // 关闭默认生成，如果设置空 OR Null 将不生成该模块。
         TemplateConfig tc = new TemplateConfig();
-        tc.setController(null);
-        tc.setXml(null);
+        tc.setController(null);//不生成Controller文件
+        tc.setXml(null);//不生成xml文件
 
-        // 5. 整合配置
         AutoGenerator ag = new AutoGenerator();
-        ag.setGlobalConfig(config)
-                .setDataSource(dsConfig)
-                .setStrategy(stConfig)
-                .setPackageInfo(pkConfig)
+        ag.setGlobalConfig(globalConfig())
+                .setDataSource(dataSourceConfig())
+                .setStrategy(strategyConfig())
+                .setPackageInfo(packageConfig())
                 .setCfg(cfg)
                 .setTemplate(tc);
 
-        // 6. 执行
         ag.execute();
     }
 
