@@ -24,4 +24,6 @@ public interface SoftwareMapper {
 	List<Software> findByCpId(@Param("cpId") String cpId);
 	List<Software> findBycIdAndName(SoftWareVo swv);
 	List<SoftWareDto> findBycIdAndNameDto(SoftWareVo swv);
+	//拼接循环语句
+	List<Software>  queryManyById(List<String> idList);
 }

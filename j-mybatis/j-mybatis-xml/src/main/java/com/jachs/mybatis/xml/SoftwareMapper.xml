@@ -109,4 +109,13 @@
 	on cp.computerid=sw.cFKId
 	where cp.computerid=#{cpId} and sw.softWareName like "%"#{swName}"%"
   </select>
+  
+  <select id="queryManyById" parameterType="java.util.List" resultMap="BaseResultMap">
+  		select * from software
+  		where 
+  		<foreach collection="idList" index="index" item="item" open="" separator="" close="">
+        	<if test="index==0"> softWareId=#{item}  </if>
+        	<if test="index!=0"> or softWareId=#{item}   	</if>
+		</foreach>
+  </select>
 </mapper>
