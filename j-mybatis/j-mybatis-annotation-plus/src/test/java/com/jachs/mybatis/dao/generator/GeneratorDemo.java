@@ -31,10 +31,13 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
  *
  */
 public class GeneratorDemo {
-	static String projectPath = System.getProperty("user.dir");
-	static // 自定义需要填充的字段
-    List<TableFill> tableFillList = new ArrayList<TableFill>();
-    
+//	static String projectPath = System.getProperty("user.dir");//当前项目路径
+	static String projectPath = "D:\\c";
+	static List<TableFill> tableFillList = new ArrayList<TableFill>();// 自定义需要填充的字段
+	static String packageName="com.jachs.springfox";//包名
+    static String []tableName=new String[] {
+            "sys_user","sys_group"};//表名
+	
 	private static GlobalConfig globalConfig() {
         GlobalConfig config = new GlobalConfig();//全局配置
         // 是否支持AR模式
@@ -55,7 +58,7 @@ public class GeneratorDemo {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://localhost:3306/jpatest")
+                .setUrl("jdbc:mysql://localhost:3306/test")
                 .setUsername("root")
                 .setPassword("123456")
                 .setTypeConvert(new MySqlTypeConvert() {
@@ -82,9 +85,7 @@ public class GeneratorDemo {
                 .setNaming(NamingStrategy.underline_to_camel)
                 //.setTablePrefix("tbl_")
                 // 生成的表
-                .setInclude(new String[] {
-                        "computer","software"
-                })
+                .setInclude(tableName)
                 .setEntityBooleanColumnRemoveIsPrefix(false)
                 // 自定义实体，公共字段
                 .setTableFillList(tableFillList);
@@ -93,7 +94,7 @@ public class GeneratorDemo {
 	}
 	private static  PackageConfig packageConfig() {
 		 PackageConfig pkConfig = new PackageConfig();
-	        pkConfig.setParent("com.jachs.mybatis")
+	        pkConfig.setParent(packageName)
 	                .setMapper("mapper")//dao
 	                .setService("service")//servcie
 	                .setController("web")//controller
