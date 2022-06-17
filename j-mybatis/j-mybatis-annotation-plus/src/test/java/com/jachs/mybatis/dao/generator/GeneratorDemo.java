@@ -88,7 +88,9 @@ public class GeneratorDemo {
                 .setInclude(tableName)
                 .setEntityBooleanColumnRemoveIsPrefix(false)
                 // 自定义实体，公共字段
-                .setTableFillList(tableFillList);
+                .setTableFillList(tableFillList)
+		 //是否生成实体时，生成字段注解
+                .setEntityTableFieldAnnotationEnable(true);
         
         return stConfig;
 	}
