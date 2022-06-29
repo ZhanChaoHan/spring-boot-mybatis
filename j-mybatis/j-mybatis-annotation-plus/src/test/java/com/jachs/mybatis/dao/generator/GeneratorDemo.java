@@ -34,7 +34,7 @@ public class GeneratorDemo {
 //	static String projectPath = System.getProperty("user.dir");//当前项目路径
 	static String projectPath = "D:\\c";
 	static List<TableFill> tableFillList = new ArrayList<TableFill>();// 自定义需要填充的字段
-	static String packageName="com.jachs.springfox";//包名
+	static String packageName="com.jachs.knife4j";//包名
     static String []tableName=new String[] {
             "sys_user","sys_group"};//表名
 	
