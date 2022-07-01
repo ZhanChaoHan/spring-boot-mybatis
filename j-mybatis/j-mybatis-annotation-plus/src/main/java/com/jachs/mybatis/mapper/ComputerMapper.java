@@ -1,7 +1,8 @@
 package com.jachs.mybatis.mapper;
 
 import com.jachs.mybatis.domain.Computer;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import com.github.yulichang.base.MPJBaseMapper;
 
 /**
  * <p>
@@ -11,6 +12,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author zhanchaohan
  * @since 2022-04-06
  */
-public interface ComputerMapper extends BaseMapper<Computer> {
+public interface ComputerMapper  extends MPJBaseMapper <Computer>{
 
 }
