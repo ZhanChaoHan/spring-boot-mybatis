@@ -1,0 +1,75 @@
+DELETE FROM area;
+
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10001, '山东省01', '菏泽01', '曹县01', '80001', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10002, '山东省02', '菏泽02', '曹县02', '80002', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10003, '山东省03', '菏泽03', '曹县03', '80003', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10004, '山东省04', '菏泽04', '曹县04', '80004', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10005, '山东省05', '菏泽05', '曹县05', '80005', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10006, '山东省06', '菏泽06', '曹县06', '80006', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10007, '山东省07', '菏泽07', '曹县07', '80007', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10008, '山东省08', '菏泽08', '曹县08', '80008', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10009, '山东省09', '菏泽09', '曹县09', '80009', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10010, '山东省10', '菏泽10', '曹县10', '80010', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10011, '山东省11', '菏泽11', '曹县11', '80011', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10012, '山东省12', '菏泽12', '曹县12', '80012', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10013, '山东省13', '菏泽13', '曹县13', '80013', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10014, '山东省14', '菏泽14', '曹县14', '80014', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10015, '山东省15', '菏泽15', '曹县15', '80015', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10016, '山东省16', '菏泽16', '曹县16', '80016', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10017, '山东省17', '菏泽17', '曹县17', '80017', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10018, '山东省18', '菏泽18', '曹县18', '80018', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10019, '山东省19', '菏泽19', '曹县19', '80019', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10020, '山东省20', '菏泽20', '曹县20', '80020', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10021, '山东省21', '菏泽21', '曹县21', '80021', false);
+INSERT INTO area (id, province, city, area, postcode, del) VALUES (10022, '山东省22', '菏泽22', '曹县22', '80022', false);
+
+DELETE FROM `user`;
+
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 1, '张三01', 1, 'https://url-01', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 2, '李四02', 0, 'https://url-02', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 3, '李四03', 0, 'https://url-03', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 4, '李四04', 0, 'https://url-04', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 5, '李四05', 0, 'https://url-05', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 6, '李四06', 0, 'https://url-06', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 7, '李四07', 0, 'https://url-07', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 8, '李四08', 0, 'https://url-08', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES ( 9, '李四09', 0, 'https://url-09', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (10, '李四10', 0, 'https://url-10', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (11, '李四11', 0, 'https://url-11', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (12, '李四12', 0, 'https://url-12', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (13, '李四13', 0, 'https://url-13', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (14, '李四14', 0, 'https://url-14', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (15, '李四15', 0, 'https://url-15', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (16, '李四16', 0, 'https://url-16', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (17, '李四17', 0, 'https://url-17', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (18, '李四18', 0, 'https://url-18', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (19, '李四19', 0, 'https://url-19', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (20, '李四20', 0, 'https://url-20', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (21, '李四21', 0, 'https://url-21', false);
+INSERT INTO `user` (id, name, sex, head_img, del) VALUES (22, '李四22', 0, 'https://url-22', false);
+
+
+DELETE FROM user_address;
+
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 1, 1, 10001, '10000000001', '曹县01', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 2, 2, 10002, '10000000002', '曹县02', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 3, 3, 10003, '10000000003', '曹县03', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 4, 4, 10004, '10000000004', '曹县04', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 5, 5, 10005, '10000000005', '曹县05', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 6, 6, 10006, '10000000006', '曹县06', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 7, 7, 10007, '10000000007', '曹县07', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 8, 8, 10008, '10000000008', '曹县08', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES ( 9, 9, 10009, '10000000009', '曹县09', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (10,10, 10010, '10000000010', '曹县10', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (11,11, 10011, '10000000011', '曹县11', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (12,12, 10012, '10000000012', '曹县12', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (13,13, 10013, '10000000013', '曹县13', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (14,14, 10014, '10000000014', '曹县14', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (15,15, 10015, '10000000015', '曹县15', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (16,16, 10016, '10000000016', '曹县16', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (17,17, 10017, '10000000017', '曹县17', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (18,18, 10018, '10000000018', '曹县18', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (19,19, 10019, '10000000019', '曹县19', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (20,20, 10020, '10000000020', '曹县20', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (21,21, 10021, '10000000021', '曹县21', false);
+INSERT INTO user_address (id, user_id, area_id, tel, address, del) VALUES (22,22, 10022, '10000000022', '曹县22', false);

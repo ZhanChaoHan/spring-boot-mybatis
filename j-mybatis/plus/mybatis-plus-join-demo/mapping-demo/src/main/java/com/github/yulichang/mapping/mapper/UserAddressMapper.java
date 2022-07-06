@@ -1,0 +1,9 @@
+package com.github.yulichang.mapping.mapper;
+
+import com.github.yulichang.base.MPJBaseMapper;
+import com.github.yulichang.mapping.entity.UserAddressDO;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserAddressMapper extends MPJBaseMapper<UserAddressDO> {
+}
