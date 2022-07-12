@@ -1,6 +1,6 @@
 package com.jachs.mybatis.multiple.d1.mapper;
 
-import com.jachs.mybatis.multiple.d1.domain.Software;
+import com.jachs.mybatis.multiple.d1.entity.SoftwareEntity;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -12,9 +12,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zhanchaohan
- * @since 2022-07-06
+ * @since 2022-07-11
  */
 @Mapper
-public interface SoftwareMapper extends BaseMapper<Software> {
+public interface SoftwareMapper extends BaseMapper<SoftwareEntity> {
 
 }

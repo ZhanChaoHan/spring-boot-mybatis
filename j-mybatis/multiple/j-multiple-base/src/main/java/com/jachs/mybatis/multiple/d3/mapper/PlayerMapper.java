@@ -1,6 +1,6 @@
-package com.jachs.mybatis.multiple.d2.mapper;
+package com.jachs.mybatis.multiple.d3.mapper;
 
-import com.jachs.mybatis.multiple.d2.entity.StudentcardEntity;
+import com.jachs.mybatis.multiple.d3.entity.PlayerEntity;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -15,6 +15,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-07-12
  */
 @Mapper
-public interface StudentcardMapper extends BaseMapper<StudentcardEntity> {
+public interface PlayerMapper extends BaseMapper<PlayerEntity> {
 
 }

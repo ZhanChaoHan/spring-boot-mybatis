@@ -15,4 +15,8 @@
         computerId, computerName, computerPrice, madeTime
     </sql>
 
+	<select id="selectPageByXml"   resultMap="BaseResultMap">
+	    SELECT computerId,computerName,computerPrice,madeTime FROM computer
+	     WHERE (computerPrice >= #{price}) ORDER BY computerPrice ASC
+	</select>
 </mapper>

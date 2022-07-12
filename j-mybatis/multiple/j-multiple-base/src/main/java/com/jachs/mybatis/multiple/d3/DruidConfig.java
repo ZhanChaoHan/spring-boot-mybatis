@@ -14,9 +14,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import lombok.AllArgsConstructor;
@@ -56,8 +59,10 @@ public class DruidConfig {
 	
 	@Bean(name = "d3SessionFactory")
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("d3DataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+		MybatisSqlSessionFactoryBean bean=new MybatisSqlSessionFactoryBean(); 
         bean.setDataSource(dataSource);
+        Resource[]  resource= new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/d3/*.xml");
+        bean.setMapperLocations(resource);
         return bean.getObject();
     }
 

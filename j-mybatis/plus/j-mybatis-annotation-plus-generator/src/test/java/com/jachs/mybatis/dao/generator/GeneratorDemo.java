@@ -26,17 +26,17 @@ import com.baomidou.mybatisplus.generator.config.rules.IColumnType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 
 /***
- * 
+ * 3.2.0版
  * @author zhanchaohan
  *
  */
 public class GeneratorDemo {
 //	static String projectPath = System.getProperty("user.dir");//当前项目路径
-	static String projectPath = "D:\\c";
+	static String projectPath = "D:\\c\\j-multiple-base";
 	static List<TableFill> tableFillList = new ArrayList<TableFill>();// 自定义需要填充的字段
-	static String packageName="com.alltrust.itd.hbs.job.mapper.core";//包名
+	static String packageName="com.jachs.mybatis.multiple.d3";//包名
     static String []tableName=new String[] {
-            "crm_mail_history"};//表名
+            "computer","software"};//表名
 	
 	private static GlobalConfig globalConfig() {
         GlobalConfig config = new GlobalConfig();//全局配置
@@ -58,7 +58,7 @@ public class GeneratorDemo {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                .setUrl("jdbc:mysql://localhost:3306/ychbs")
+                .setUrl("jdbc:mysql://localhost:3306/jpatest")
                 .setUsername("root")
                 .setPassword("123456")
                 .setTypeConvert(new MySqlTypeConvert() {
@@ -89,8 +89,11 @@ public class GeneratorDemo {
                 .setEntityBooleanColumnRemoveIsPrefix(false)
                 // 自定义实体，公共字段
                 .setTableFillList(tableFillList)
+                //使用lombok,不用get,set
+                .setEntityLombokModel(true)
+                .setEntitySerialVersionUID(true)
                 //是否生成实体时，生成字段注解
-                .setEntityTableFieldAnnotationEnable(true);
+                .setEntityTableFieldAnnotationEnable(false);
         
         return stConfig;
 	}

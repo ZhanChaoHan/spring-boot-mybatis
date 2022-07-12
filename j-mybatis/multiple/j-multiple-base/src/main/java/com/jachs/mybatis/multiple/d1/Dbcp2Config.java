@@ -14,7 +14,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,7 +37,9 @@ import lombok.NoArgsConstructor;
 @PropertySource("classpath:d1.properties")
 @ConfigurationProperties(prefix="spring.datasource.dbcp2")
 
-@MapperScan(basePackages = {"com.jachs.mybatis.multiple.d1.mapper"}, sqlSessionFactoryRef = "d1SessionFactory", annotationClass = Mapper.class)
+@MapperScan(basePackages = {"com.jachs.mybatis.multiple.d1.mapper"},
+sqlSessionFactoryRef = "d1SessionFactory",sqlSessionTemplateRef ="d1SqlSessionTemplate",
+annotationClass = Mapper.class)
 public class Dbcp2Config {
 	private String driver;
 	private String url;
@@ -64,12 +70,17 @@ public class Dbcp2Config {
 		source.setDefaultAutoCommit(defaultAutoCommit);
 		return source;
 	}
-	
+	/***
+	 * mybatis配置用SqlSessionFactoryBean,plus用MybatisSqlSessionFactoryBean对象
+	 */
 	@Primary
 	@Bean(name = "d1SessionFactory")
     public SqlSessionFactory testSqlSessionFactory(@Qualifier("d1DataSource") DataSource dataSource) throws Exception {
-        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+		MybatisSqlSessionFactoryBean bean=new MybatisSqlSessionFactoryBean(); 
         bean.setDataSource(dataSource);
+        Resource[]  resource= new PathMatchingResourcePatternResolver().getResources("classpath*:mapper/d1/*.xml");
+        bean.setMapperLocations(resource);
+//        bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("com/jachs/mybatis/multiple/d1/mapper/mapper/*.xml"));
         return bean.getObject();
     }
 	
