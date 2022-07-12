@@ -5,19 +5,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.assertj.core.util.Arrays;
-
 import com.baomidou.mybatisplus.generator.AutoGenerator;
-import com.baomidou.mybatisplus.generator.IFill;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig.Builder;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
-import com.baomidou.mybatisplus.generator.fill.Column;
-
 
 /***
  * 3.5.3版
@@ -33,9 +27,9 @@ public class GeneratorDemo1 {
 	
 	private static final String projectPath="D:\\c";//存放路径
 	private static final String xmlPath="D:\\c\\a";//xml文件存放路径
-	private static final String parent="com.jachs.mybatis.multiple.d3";//项目包路径
+	private static final String parent="com.jachs.mybatis.dynamic";//项目包路径
 	private static final String moduleName="test";//模块名称
-	private static final String []tSt=new String[] {"player","videogame"};
+	private static final String []tSt=new String[] {"computer","software","exam","player","videogame"};
 	
 	private static List<String> initTable() {
 		List<String>table=new ArrayList<String>();

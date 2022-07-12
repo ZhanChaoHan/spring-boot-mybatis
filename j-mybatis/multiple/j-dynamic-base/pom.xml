@@ -8,9 +8,9 @@
 		<version>1.0</version>
 	</parent>
 	
-	<artifactId>j-multiple-base</artifactId>
+	<artifactId>j-dynamic-base</artifactId>
 
-	<name>多数据源注解配置</name>
+	<name>动态数据源注解配置</name>
 	<description>Demo project for Spring Boot</description>
 	
 	<properties>
@@ -18,7 +18,12 @@
 	</properties>
 	
 	<dependencies>
-		
+		<dependency>
+		    <groupId>com.baomidou</groupId>
+		    <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+		    <version>${dynamic-datasource-spring-boot-starter.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
