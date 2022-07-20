@@ -25,9 +25,10 @@ public class GeneratorDemo1 {
 	private static final String author="zhanchaohan";
 	
 	
-	private static final String projectPath="D:\\c";//存放路径
-	private static final String xmlPath="D:\\c\\a";//xml文件存放路径
-	private static final String parent="com.jachs.mybatis.cache";//项目包路径
+	private static final String projectPath="C:\\Users\\79951\\Downloads\\base-data";//存放路径,一般为项目跟
+	private static final String projectCPatch="/src/main/java";//项目构造路径
+	private static final String xmlPath="C:\\Users\\79951\\Downloads\\base-data\\src\\main\\resources\\xml";//xml文件存放路径
+	private static final String parent="com.jachs.basedata";//项目包路径
 	private static final String moduleName="test";//模块名称
 	private static final String []tSt=new String[] {"computer","software"};
 	
@@ -88,7 +89,7 @@ public class GeneratorDemo1 {
 		com.baomidou.mybatisplus.generator.config.GlobalConfig.Builder gc=new GlobalConfig.Builder()
                 .disableOpenDir() // 禁止打开输出目录	默认值:true
                 .author(author) //作者名
-                .outputDir(projectPath+"/src/main/") // 指定输出目录
+                .outputDir(projectPath+projectCPatch) // 指定输出目录
                 .enableSwagger();
 		
 		return gc.build();
