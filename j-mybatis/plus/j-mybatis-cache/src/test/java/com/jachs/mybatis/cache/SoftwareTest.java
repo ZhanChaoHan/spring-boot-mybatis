@@ -37,7 +37,7 @@ public class SoftwareTest {
 		swWrapper.eq("softWareId", swId);
 		
 		SoftwareEntity sw=new SoftwareEntity();
-		sw.setSoftWareName("更新3");
+		sw.setSoftWareName("更新6");
 		
 		iSoftwareService.update(sw, swWrapper);
 	}
