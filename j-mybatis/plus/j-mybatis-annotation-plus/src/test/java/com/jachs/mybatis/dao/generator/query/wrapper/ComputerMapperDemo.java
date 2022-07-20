@@ -51,5 +51,6 @@ public class ComputerMapperDemo {
 		computerMapper.selectList(query).forEach(cp->{
 			System.out.println(cp.toString());
 		});
+		
 	}
 }

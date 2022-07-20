@@ -48,6 +48,7 @@
         madeTime,
       </if>
     </trim>
+    
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="computerid != null">
         #{computerid,jdbcType=VARCHAR},

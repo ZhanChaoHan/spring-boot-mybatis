@@ -27,9 +27,9 @@ public class GeneratorDemo1 {
 	
 	private static final String projectPath="D:\\c";//存放路径
 	private static final String xmlPath="D:\\c\\a";//xml文件存放路径
-	private static final String parent="com.jachs.mybatis.dynamic";//项目包路径
+	private static final String parent="com.jachs.mybatis.cache";//项目包路径
 	private static final String moduleName="test";//模块名称
-	private static final String []tSt=new String[] {"computer","software","exam","player","videogame"};
+	private static final String []tSt=new String[] {"computer","software"};
 	
 	private static List<String> initTable() {
 		List<String>table=new ArrayList<String>();
