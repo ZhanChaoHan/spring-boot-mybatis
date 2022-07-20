@@ -2,9 +2,13 @@ package com.jachs.mybatis.cache.mapper;
 
 import com.jachs.mybatis.cache.MybatisPlusRedisCache;
 import com.jachs.mybatis.cache.entity.ComputerEntity;
+import com.jachs.mybatis.cache.entity.dto.CpDto;
+
+import java.util.List;
 
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -19,5 +23,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 @Mapper
 @CacheNamespace(implementation= MybatisPlusRedisCache.class,eviction=MybatisPlusRedisCache.class)
 public interface ComputerMapper extends BaseMapper<ComputerEntity> {
+
+	List<CpDto> queryCpDto(@Param("cpId") String cpId);
 
 }

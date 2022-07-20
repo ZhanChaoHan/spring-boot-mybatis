@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jachs.mybatis.cache.mapper.SoftwareMapper">
-
+	<cache type="com.jachs.mybatis.cache.MybatisPlusRedisCache"/>
+	
+	<resultMap id="baseMap" type="com.jachs.mybatis.cache.entity.SoftwareEntity">
+        <id column="computerId" property="computerId" />
+        <result column="computerName" property="computerName" />
+        <result column="computerPrice" property="computerPrice" />
+        <result column="madeTime" property="madeTime" />
+        <result column="softWareName" property="softWareName" />
+    </resultMap>
+    
+    <select id="findAllByXml" resultMap="baseMap">
+    	select * from software
+    </select>
+    
+    <select id="findById" resultType="com.jachs.mybatis.cache.entity.SoftwareEntity" useCache="true">
+    	select * from software where softWareId=#{swId}
+    </select>
 </mapper>

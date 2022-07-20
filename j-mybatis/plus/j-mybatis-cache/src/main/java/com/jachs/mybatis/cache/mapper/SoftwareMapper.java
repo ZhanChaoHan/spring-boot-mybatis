@@ -2,7 +2,10 @@ package com.jachs.mybatis.cache.mapper;
 
 import com.jachs.mybatis.cache.entity.SoftwareEntity;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -16,5 +19,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 @Mapper
 public interface SoftwareMapper extends BaseMapper<SoftwareEntity> {
+	List<SoftwareEntity> findAllByXml();
+
+	SoftwareEntity findById(@Param("swId") String swId);
 
 }
