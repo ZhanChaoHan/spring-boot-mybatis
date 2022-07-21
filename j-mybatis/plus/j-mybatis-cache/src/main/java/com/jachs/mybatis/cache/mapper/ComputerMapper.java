@@ -9,6 +9,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Property;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
@@ -21,7 +22,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2022-07-19
  */
 @Mapper
-@CacheNamespace(implementation= MybatisPlusRedisCache.class,eviction=MybatisPlusRedisCache.class)
+@CacheNamespace(implementation= MybatisPlusRedisCache.class,
+eviction=MybatisPlusRedisCache.class,properties = { @Property(name = "timeout", value = "60000") })
 public interface ComputerMapper extends BaseMapper<ComputerEntity> {
 
 	List<CpDto> queryCpDto(@Param("cpId") String cpId);

@@ -1,6 +1,7 @@
 package com.jachs.mybatis.cache;
 
 
+import java.time.Duration;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -18,12 +19,11 @@ public class MybatisPlusRedisCache implements Cache{
 	// 读写锁
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock(true);
  
-    //这里使用了redis缓存，使用springboot自动注入
-    @Autowired
     private RedisTemplate<String, Object> redisTemplate;
  
     private String id;
  
+    private Integer timeout;
     
     public MybatisPlusRedisCache(final String id) {
         if (id == null) {
@@ -42,6 +42,10 @@ public class MybatisPlusRedisCache implements Cache{
     public void putObject(Object key, Object value) {
         if (value != null) {
             redisTemplate.opsForHash().put(id, key.toString(), value);
+            
+            if (timeout != null && redisTemplate.opsForValue().getOperations().getExpire(id) == -1) {
+            	System.out.println("设置超时:"+redisTemplate.expire(id, Duration.ofMillis(timeout)));
+            }
         }
     }
  
