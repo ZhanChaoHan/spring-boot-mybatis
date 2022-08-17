@@ -18,6 +18,7 @@
 
 	<modules>
 		<module>j-mybatis-cache</module>
+		<module>j-mybatis-redis-cache</module>
 		<module>j-mybatis-annotation</module>
 		<module>j-mybatis-annotation-plus</module>
 		<module>j-mybatis-annotation-plus-generator</module>

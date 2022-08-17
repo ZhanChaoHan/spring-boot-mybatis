@@ -17,19 +17,19 @@
 		</jdbcConnection>
 		<!--生成实体类的位置以及包的名字 -->
 		<javaModelGenerator
-			targetPackage="com.jachs.mybatis.entity"
+			targetPackage="com.jachs.springmybatis.entity"
 			targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!--生成映射文件存放位置,实际上用不上配置XML文件生成出来把SQL复制到Mapper上 -->
-		<sqlMapGenerator targetPackage="com.jachs.mybatis.xml"
+		<sqlMapGenerator targetPackage="com.jachs.springmybatis.xml"
 			targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!--生成Dao类存放位置,mapper接口生成的位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.jachs.mybatis.dao" targetProject="src\main\java">
+			targetPackage="com.jachs.springmybatis.dao" targetProject="src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!--生成对应表及类名 -->

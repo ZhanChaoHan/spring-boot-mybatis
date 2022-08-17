@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig.Builder;
@@ -12,6 +13,12 @@ import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.OutputFile;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateConfig;
+import com.baomidou.mybatisplus.generator.config.TemplateType;
+import com.baomidou.mybatisplus.generator.engine.BeetlTemplateEngine;
+import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
+import com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;
+import com.jachs.mybatis.Application;
 
 /***
  * 3.5.3版
@@ -25,10 +32,10 @@ public class GeneratorDemo1 {
 	private static final String author="zhanchaohan";
 	
 	
-	private static final String projectPath="C:\\Users\\79951\\Downloads\\base-data";//存放路径,一般为项目跟
+	private static final String projectPath="D:\\code\\git\\spring-mybatis\\spring-mybatis-plus";//存放路径,一般为项目跟
 	private static final String projectCPatch="/src/main/java";//项目构造路径
-	private static final String xmlPath="C:\\Users\\79951\\Downloads\\base-data\\src\\main\\resources\\xml";//xml文件存放路径
-	private static final String parent="com.jachs.basedata";//项目包路径
+	private static final String xmlPath="D:\\code\\git\\spring-mybatis\\spring-mybatis-plus\\src\\main\\resources\\xml";//xml文件存放路径
+	private static final String parent="com.jachs.springmybatis";//项目包路径
 	private static final String moduleName="test";//模块名称
 	private static final String []tSt=new String[] {"computer","software"};
 	
@@ -65,11 +72,27 @@ public class GeneratorDemo1 {
 	     generator.global(globalConfig());
 	     generator.packageInfo(packageConfig());
 	     generator.strategy(strategyConfig());
+	     generator.template(template());
 	     
-	     generator.execute();
+	     //设置代码生成引擎
+	     VelocityTemplateEngine vt=new VelocityTemplateEngine();//默认引擎
+//	     BeetlTemplateEngine bt=new BeetlTemplateEngine();
+//	     FreemarkerTemplateEngine ft=new FreemarkerTemplateEngine();
+	     
+	     generator.execute(vt);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	private static  TemplateConfig template() {
+//		TemplateConfig tcf=new TemplateConfig.Builder()
+//				.disable(TemplateType.CONTROLLER)//指定不生成那个层
+//				.disable(TemplateType.ENTITY)
+//				.build();
+		
+		TemplateConfig tcf=new TemplateConfig.Builder()
+				.build();
+		return tcf;
 	}
 	public static PackageConfig  packageConfig() {
 		 PackageConfig pkgConfig = new PackageConfig.Builder()

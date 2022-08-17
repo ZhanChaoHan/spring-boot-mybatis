@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jachs.springmybatis.dao.SoftwareMapper">
+  <resultMap id="BaseResultMap" type="com.jachs.springmybatis.entity.Software">
+    <id column="softWareId" jdbcType="VARCHAR" property="softwareid" />
+    <result column="softWareName" jdbcType="VARCHAR" property="softwarename" />
+    <result column="cFKId" jdbcType="VARCHAR" property="cfkid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    softWareId, softWareName, cFKId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software (softWareId, softWareName, cFKId
+      )
+    values (#{softwareid,jdbcType=VARCHAR}, #{softwarename,jdbcType=VARCHAR}, #{cfkid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        softWareId,
+      </if>
+      <if test="softwarename != null">
+        softWareName,
+      </if>
+      <if test="cfkid != null">
+        cFKId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        #{softwareid,jdbcType=VARCHAR},
+      </if>
+      <if test="softwarename != null">
+        #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    <set>
+      <if test="softwarename != null">
+        softWareName = #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        cFKId = #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    set softWareName = #{softwarename,jdbcType=VARCHAR},
+      cFKId = #{cfkid,jdbcType=VARCHAR}
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.jachs.springmybatis.entity.Software">
+    <id column="softWareId" jdbcType="VARCHAR" property="softwareid" />
+    <result column="softWareName" jdbcType="VARCHAR" property="softwarename" />
+    <result column="cFKId" jdbcType="VARCHAR" property="cfkid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    softWareId, softWareName, cFKId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software (softWareId, softWareName, cFKId
+      )
+    values (#{softwareid,jdbcType=VARCHAR}, #{softwarename,jdbcType=VARCHAR}, #{cfkid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        softWareId,
+      </if>
+      <if test="softwarename != null">
+        softWareName,
+      </if>
+      <if test="cfkid != null">
+        cFKId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        #{softwareid,jdbcType=VARCHAR},
+      </if>
+      <if test="softwarename != null">
+        #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    <set>
+      <if test="softwarename != null">
+        softWareName = #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        cFKId = #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    set softWareName = #{softwarename,jdbcType=VARCHAR},
+      cFKId = #{cfkid,jdbcType=VARCHAR}
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.jachs.springmybatis.entity.Software">
+    <id column="softWareId" jdbcType="VARCHAR" property="softwareid" />
+    <result column="softWareName" jdbcType="VARCHAR" property="softwarename" />
+    <result column="cFKId" jdbcType="VARCHAR" property="cfkid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    softWareId, softWareName, cFKId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from software
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software (softWareId, softWareName, cFKId
+      )
+    values (#{softwareid,jdbcType=VARCHAR}, #{softwarename,jdbcType=VARCHAR}, #{cfkid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jachs.springmybatis.entity.Software">
+    insert into software
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        softWareId,
+      </if>
+      <if test="softwarename != null">
+        softWareName,
+      </if>
+      <if test="cfkid != null">
+        cFKId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="softwareid != null">
+        #{softwareid,jdbcType=VARCHAR},
+      </if>
+      <if test="softwarename != null">
+        #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    <set>
+      <if test="softwarename != null">
+        softWareName = #{softwarename,jdbcType=VARCHAR},
+      </if>
+      <if test="cfkid != null">
+        cFKId = #{cfkid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jachs.springmybatis.entity.Software">
+    update software
+    set softWareName = #{softwarename,jdbcType=VARCHAR},
+      cFKId = #{cfkid,jdbcType=VARCHAR}
+    where softWareId = #{softwareid,jdbcType=VARCHAR}
+  </update>
+</mapper>
