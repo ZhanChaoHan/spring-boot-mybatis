@@ -4,7 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="exam">
-    <insert id="insertExam">
+
+    <insert id="insertExam" parameterType="com.jachs.xml.entity.Exam">
        insert into exam(examId,examName,score)   values(#{examId},#{examName},#{score})
     </insert>
+    
+    <select id="selectExam" parameterType="int" resultType="com.jachs.xml.entity.Exam">
+	  SELECT * FROM exam WHERE examId = #{id}
+	</select>
+	
+	<select id="findAll" resultType="com.jachs.xml.entity.Exam">
+	  SELECT * FROM exam 
+	</select>
 </mapper>
